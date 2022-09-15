@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="KingstoneProject.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:KingstoneProject"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <ShellContent Title="Sheets" Icon="sheetspagefavicon.png">
+            <local:SheetsPage />
+        </ShellContent>
+        <ShellContent Title="Stats" Icon="statspagefavicon.png">
+            <local:StatsPage />
+        </ShellContent>
+    </TabBar>
+
+</Shell>
