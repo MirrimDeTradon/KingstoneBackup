@@ -1,12 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:KingstoneProject"
              x:Class="KingstoneProject.SheetsPage"
-             Title="SheetsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="SheetsPage"
+             BackgroundColor="#00FFCC">
+    <ScrollView>
+        <VerticalStackLayout>
+            <CarouselView x:Name="characterSheetList" PositionChanged="OnPositionChanged">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.BottomItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                               IconImageSource="trashicon.png"
+                                               BackgroundColor="#5E366A"
+                                               Invoked="OnDeleteInvoked"/>
+                                </SwipeItems>
+                            </SwipeView.BottomItems>
+                            <Grid Margin="40,60,40,20" RowSpacing="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="300" />
+                                    <RowDefinition Height="75" />
+                                </Grid.RowDefinitions>
+
+                                <Image Grid.Row="0" Source="{Binding CharacterImage}" />
+                                <Label Grid.Row="1" FontFamily="Ringbearer" FontSize ="35" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="True" LineBreakMode="NoWrap" Text="{Binding Name}" />
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Entry x:Name="newCharacterSheet" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" HorizontalOptions="Center" Placeholder="Give a Name" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button TextColor="#00FFCC" FontFamily="TCM" FontSize="20" Text="Generate a Sheet" Grid.Column="1" Clicked="OnNewButtonClicked" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

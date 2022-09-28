@@ -6,13 +6,12 @@
     xmlns:local="clr-namespace:KingstoneProject"
     Shell.FlyoutBehavior="Disabled">
 
-    <TabBar>
+    <TabBar x:Name="tabbar">
         <ShellContent Title="Sheets" Icon="sheetspagefavicon.png">
             <local:SheetsPage />
         </ShellContent>
-        <ShellContent Title="Stats" Icon="statspagefavicon.png">
-            <local:StatsPage />
-        </ShellContent>
+        <ShellContent Title="Character" Icon="characterpagefavicon.png" ContentTemplate="{DataTemplate local:CharacterPage}"/>
+        <ShellContent Title="Stats" Icon="statspagefavicon.png" ContentTemplate="{DataTemplate local:StatsPage}"/>
     </TabBar>
 
 </Shell>

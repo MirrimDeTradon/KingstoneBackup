@@ -4,4 +4,5 @@
             x:Class="KingstoneProject.TestPage">
     <local:SheetsPage />
     <local:StatsPage />
+    <local:CharacterPage />
 </TabbedPage>

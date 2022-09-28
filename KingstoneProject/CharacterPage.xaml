@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingstoneProject.CharacterPage"
+             Title="CharacterPage"
+             BackgroundColor="#00FFCC">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid Margin="40,40,40,20" ColumnSpacing="7.5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+
+                <ImageButton Grid.Column="0" Grid.Row="0" x:Name ="CharacterImage" Clicked="OnCharacterImageClicked"/>
+                <Grid Grid.Column="1" VerticalOptions ="Center" x:Name ="grid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Grid>
+            <Entry x:Name="CharacterName" TextChanged ="OnCharacterNameTextChanged" TextColor="#331940" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" HorizontalOptions="Center" IsSpellCheckEnabled ="False" Placeholder="Name" />
+            <Grid Margin="25,20,25,20" ColumnSpacing="15" RowSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" FontFamily="TCM" FontSize ="18" VerticalOptions="Center"  TextColor="#331940" Text="Background:"/>
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#331940">
+                    <Picker Grid.Row="1" Grid.Column="0" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnBackgroundPickerSelectedIndexChanged" VerticalOptions="Center" x:Name="backgroundPicker" Title="Pick a Background" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="0" Grid.Column="1" FontFamily="TCM" FontSize ="18" VerticalOptions="Center"  TextColor="#331940" Text="Sub-Background:"/>
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#331940">
+                    <Picker Grid.Row="1" Grid.Column="1" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnSubBackgroundPickerSelectedIndexChanged" VerticalOptions="Center" x:Name="subBackgroundPicker" Title="Pick a Sub" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Class:"/>
+                <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#331940">
+                    <Picker Grid.Row="3" Grid.Column="0" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnClassPickerSelectedIndexChanged" VerticalOptions="Center" x:Name="classPicker" Title="Pick a Class" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="PAW:"/>
+                <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="#331940">
+                    <Picker Grid.Row="3" Grid.Column="1" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnPAWPickerSelectedIndexChanged" VerticalOptions="Center" x:Name="PAWPicker" Title="Pick your PAW" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="4" Grid.Column="0" x:Name="DistinctionLabel" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Distinction:"/>
+                <Frame Grid.Row="5" Grid.Column="0" x:Name="DistinctionFrame" BackgroundColor="#331940">
+                    <Picker Grid.Row="5" Grid.Column="0" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnDistinctionPickerSelectedIndexChanged" VerticalOptions="Center" x:Name="DistinctionPicker" Title="Pick a Distinction" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="4" Grid.Column="0" x:Name="PrimaryDisciplineLabel" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Primary Discipline:"/>
+                <Frame Grid.Row="5" Grid.Column="0" x:Name="PrimaryDisciplineFrame" BackgroundColor="#331940">
+                    <Picker Grid.Row="5" Grid.Column="0" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnPrimaryDisciplinePickerSelectedIndexChanged" VerticalOptions="Center" x:Name="PrimaryDisciplinePicker" Title="Pick a Discipline" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="4" Grid.Column="1" x:Name="SecondaryDisciplineLabel" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Secondary Discipline:"/>
+                <Frame Grid.Row="5" Grid.Column="1" x:Name="SecondaryDisciplineFrame" BackgroundColor="#331940">
+                    <Picker Grid.Row="5" Grid.Column="1" FontFamily="TCM" FontSize ="16" SelectedIndexChanged="OnSecondaryDisciplinePickerSelectedIndexChanged" VerticalOptions="Center" x:Name="SecondaryDisciplinePicker" Title="Pick a Discipline" TextColor ="#00FFCC" TitleColor="#0CCA98"/>
+                </Frame>
+                <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Left Hand:"/>
+                <Frame Grid.Row="7" Grid.Column="0" BackgroundColor="#331940">
+                    <Entry Grid.Row="7" Grid.Column="0" x:Name="LeftHand" TextChanged ="OnLeftHandTextChanged" TextColor="#00FFCC" MaxLength ="13" FontFamily="TCM" FontSize ="16" VerticalOptions="Center" IsSpellCheckEnabled ="False" Placeholder="Left Hand Gear" />
+                </Frame>
+                <ImageButton Grid.Row="8" Grid.Column="0" x:Name ="LeftHandImage" Clicked="OnLeftHandImageClicked"/>
+                <Label Grid.Row="6" Grid.Column="1" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Right Hand:"/>
+                <Frame Grid.Row="7" Grid.Column="1" BackgroundColor="#331940">
+                    <Entry Grid.Row="7" Grid.Column="1" x:Name="RightHand" TextChanged ="OnRightHandTextChanged" TextColor="#00FFCC" MaxLength ="13" FontFamily="TCM" FontSize ="16" VerticalOptions="Center" IsSpellCheckEnabled ="False" Placeholder="Right Hand Gear" />
+                </Frame>
+                <ImageButton Grid.Row="8" Grid.Column="1" x:Name ="RightHandImage" Clicked="OnRightHandImageClicked"/>
+                <Label Grid.Row="9" Grid.Column="0" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Foibles:"/>
+                <Frame Grid.Row="10" Grid.Column="0" Padding="10, 50, 10, 50" BackgroundColor="#331940">
+                    <Editor Grid.Row="10" Grid.Column="0" FontFamily="TCM" FontSize ="16" FontAutoScalingEnabled="False" x:Name="FoibleEditor" AutoSize="Disabled" HeightRequest="100" WidthRequest="150" TextColor="#00FFCC" BackgroundColor="#331940" TextChanged="OnFoibleEditorTextChanged"/>
+                </Frame>
+                <Label Grid.Row="9" Grid.Column="1" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Specials:"/>
+                <Frame Grid.Row="10" Grid.Column="1" BackgroundColor="#331940">
+                    <Editor Grid.Row="10" Grid.Column="1" FontFamily="TCM" FontSize ="16" FontAutoScalingEnabled="False" x:Name="SpecialEditor" AutoSize="Disabled" HeightRequest="100" WidthRequest="150" TextColor="#00FFCC" BackgroundColor="#331940" TextChanged="OnSpecialEditorTextChanged"/>
+                </Frame>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -2,10 +2,14 @@
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public static CharacterSheetRepository CharacterSheetRepo { get; private set; }
 
-		MainPage = new AppShell();
-	}
+    public App(CharacterSheetRepository repo)
+	{
+        CharacterSheetRepo = repo;
+
+        InitializeComponent();
+
+		MainPage = new AppShell();        
+    }
 }

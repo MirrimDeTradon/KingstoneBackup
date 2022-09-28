@@ -49,11 +49,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="NewPage1.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="CharacterPage.xaml.cs">
+	    <DependentUpon>CharacterPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="StatsPage.xaml.cs">
 	    <DependentUpon>StatsPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="SheetsPage.xaml.cs">
-	    <DependentUpon>SheetsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="TestPage.xaml.cs">
 	    <DependentUpon>TestPage.xaml</DependentUpon>
@@ -61,10 +70,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="StatsPage.xaml">
+	  <MauiXaml Update="CharacterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SheetsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="StatsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="TestPage.xaml">
