@@ -14,6 +14,7 @@ namespace KingstoneProject
     {
         string _dbPath;
         private SQLiteAsyncConnection conn;
+        private SQLiteConnection conn2;
         public string StatusMessage { get; set; }
         public int currentSheetId { get; set; }
         private async Task Init()
@@ -22,8 +23,17 @@ namespace KingstoneProject
                 return;
 
             conn = new SQLiteAsyncConnection(_dbPath);
-            
+
             await conn.CreateTableAsync<CharacterSheet>();
+        }
+        private void Init2()
+        {
+            if (conn2 != null)
+                return;
+
+            conn2 = new SQLiteConnection(_dbPath);
+
+            conn2.CreateTable<CharacterSheet>();
         }
 
         public CharacterSheetRepository(string dbPath)
@@ -31,18 +41,25 @@ namespace KingstoneProject
             _dbPath = dbPath;
         }
 
-        public async Task AddNewCharacterSheet(string name, string background, string player, string characterClass, string foibles, string distinction, string primaryDiscipline, string secondaryDiscipline, int harmTaken, int harmFestered, string leftHandName, string leftHandImage, string rightHandName, string rightHandImage, string specials, string characterImage, string paw, int strength, int endurance, int ready, int agility, int knowledge, int proficiency, int charisma, int awareness, int destruction, int transmutation, int restoration)
+        public void AddNewCharacterSheet(string name, string background, string player, string characterClass, string foibles, string distinction, string primaryDiscipline, string secondaryDiscipline, int harmTaken, int harmFestered, string leftHandName, string leftHandImage, string rightHandName, string rightHandImage, string specials, string characterImage, string paw, int strength, int endurance, int ready, int agility, int knowledge, int proficiency, int charisma, int awareness, int destruction, int transmutation, int restoration)
         {
             int result = 0;
             try
             {
-                await Init();
+                Init2();
 
                 if (string.IsNullOrEmpty(name))
                     throw new Exception("Valid name required");
 
-                result = await conn.InsertAsync(new CharacterSheet { Name = name, Background = background, Player = player, CharacterClass = characterClass, Foibles = foibles, Distinction = distinction, PrimaryDiscipline = primaryDiscipline, SecondaryDiscipline = secondaryDiscipline, HarmTaken = harmTaken, HarmFestered = harmFestered, LeftHandName = leftHandName, LeftHandImage = leftHandImage, RightHandImage = rightHandImage, RightHandName = rightHandName, Specials = specials, CharacterImage = "sheetspagefavicon.png", Paw = paw, Strength = strength, Endurance = endurance, Ready = ready, Agility = agility, Knowledge = knowledge, Proficiency = proficiency, Charisma = charisma, Awareness = awareness, Destruction = destruction, Transmutation = transmutation, Restoration = restoration});
+                result = conn2.Insert(new CharacterSheet { Name = name, Background = background, Player = player, CharacterClass = characterClass, Foibles = foibles, Distinction = distinction, PrimaryDiscipline = primaryDiscipline, SecondaryDiscipline = secondaryDiscipline, HarmTaken = harmTaken, HarmFestered = harmFestered, LeftHandName = leftHandName, LeftHandImage = leftHandImage, RightHandImage = rightHandImage, RightHandName = rightHandName, Specials = specials, CharacterImage = "sheetspagefavicon.png", Paw = paw, Strength = strength, Endurance = endurance, Ready = ready, Agility = agility, Knowledge = knowledge, Proficiency = proficiency, Charisma = charisma, Awareness = awareness, Destruction = destruction, Transmutation = transmutation, Restoration = restoration});
 
+                SQLiteCommand cmd = conn2.CreateCommand("select last_insert_rowid()");
+
+                Int64 LastRowID64 = cmd.ExecuteScalar<Int64>();
+
+                int LastRowID = (int)LastRowID64;
+
+                App.UpgradesTrackerRepository.AddNewUpgradesTracker(LastRowID, conn2);
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
             }

@@ -10,23 +10,31 @@ public partial class SheetsPage : ContentPage
     public SheetsPage()
     {
         InitializeComponent();
-        
         GetSQL();
     }
 
-    public async void OnNewButtonClicked(object sender, EventArgs args)
+    public void OnNewButtonClicked(object sender, EventArgs args)
     {
 
-        await App.CharacterSheetRepo.AddNewCharacterSheet(newCharacterSheet.Text, null, null, null, null, null, null, null, 0, 0, null, "lefthanddefault.png", null, "righthanddefault.png", null, "sheetspagefavicon.png", null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        App.CharacterSheetRepo.AddNewCharacterSheet(newCharacterSheet.Text, null, null, null, null, null, null, null, 0, 0, null, "lefthanddefault.png", null, "righthanddefault.png", null, "sheetspagefavicon.png", null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         newCharacterSheet.Text = "";
         GetSQL();
     }
 
     public async void GetSQL()
     {
-        charactersheets = await App.CharacterSheetRepo.GetAllCharacterSheets();
-        characterSheetList.ItemsSource = charactersheets;
-        App.CharacterSheetRepo.currentSheetId = (characterSheetList.CurrentItem as CharacterSheet).Id;
+        if(App.CharacterSheetRepo != null)
+        {
+            charactersheets = await App.CharacterSheetRepo.GetAllCharacterSheets();
+            if (charactersheets != null)
+            {
+                characterSheetList.ItemsSource = charactersheets;
+                if(characterSheetList.CurrentItem != null)
+                {
+                    App.CharacterSheetRepo.currentSheetId = (characterSheetList.CurrentItem as CharacterSheet).Id;
+                }
+            }
+        }
     }
 
     private async void OnDeleteInvoked(object sender, EventArgs e)
@@ -40,22 +48,31 @@ public partial class SheetsPage : ContentPage
 
     private void OnPositionChanged(object sender, EventArgs e)
     {
-        CharacterSheet charactersheet = characterSheetList.CurrentItem as CharacterSheet;
-        App.CharacterSheetRepo.currentSheetId = charactersheet.Id;
+        if (App.CharacterSheetRepo != null)
+        {
+            if (characterSheetList.CurrentItem != null)
+            {
+                CharacterSheet charactersheet = characterSheetList.CurrentItem as CharacterSheet;
+                App.CharacterSheetRepo.currentSheetId = charactersheet.Id;
+            }
+        }
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        int currentSheetId = App.CharacterSheetRepo.currentSheetId;
-        if (charactersheets != null)
+        if (App.CharacterSheetRepo != null)
         {
-            CharacterSheet currentCharacterSheet = new CharacterSheet();
-            for (int i = 0; i < charactersheets.Count; i++)
+            int currentSheetId = App.CharacterSheetRepo.currentSheetId;
+            if (charactersheets != null)
             {
-                if(charactersheets[i].Id == currentSheetId)
+                CharacterSheet currentCharacterSheet = new CharacterSheet();
+                for (int i = 0; i < charactersheets.Count; i++)
                 {
-                    charactersheets[i] = await App.CharacterSheetRepo.GetCharacterSheet(currentSheetId);
+                    if (charactersheets[i].Id == currentSheetId)
+                    {
+                        charactersheets[i] = await App.CharacterSheetRepo.GetCharacterSheet(currentSheetId);
+                    }
                 }
             }
         }

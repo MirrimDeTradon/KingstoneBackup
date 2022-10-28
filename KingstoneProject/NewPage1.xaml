@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingstoneProject.UpgradesPage"
+             Title="UpgradesPage"
+             BackgroundColor="#00FFCC">
+    <Shell.TitleView>
+        <Label Text="KINGSTONE  " FontSize="35" FontFamily="Impact" FontAttributes="Italic" TextColor="#00FFCC" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Shell.TitleView>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Strength" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="S" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="trength" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="strengthCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="strengthGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Endurance" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text=" E" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="ndurance " FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="enduranceCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="enduranceGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Ready" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="R" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="eady" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="readyCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="readyGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Agility" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="A" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="gility" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="agilityCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="agilityGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Knowledge" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="K" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="nowledge" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="knowledgeCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="knowledgeGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Proficiency" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="P" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="roficiency" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="proficiencyCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="proficiencyGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Charisma" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="C" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="harisma" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="charismaCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="charismaGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Awareness" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="A" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="wareness" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="awarenessCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="awarenessGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5" x:Name="destMain">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Destruction" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text=" D" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="estruction " FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="destructionCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="destructionGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5" x:Name="transMain">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Transmutation" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="T" FontFamily="Harlow" FontSize="35"/>
+                                <Span Text="ransmutation" FontFamily="TCM" FontSize="25"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="transmutationCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="transmutationGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+
+                <Grid ColumnSpacing="5" x:Name="restMain">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*"/>
+                        <ColumnDefinition Width ="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Margin="20,0,0,0" Padding="5,0,5,0" BindingContext="Restoration" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="R" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="estoration" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column ="1" Margin="0,0,20,0" Padding="5,0,5,0" ColumnSpacing="5" HorizontalOptions="Center" VerticalOptions="Center" x:Name ="restorationCirclesGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+                <Grid Margin="20, 0, 20, 0" ColumnSpacing="5" RowSpacing="5" x:Name ="restorationGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                </Grid>
+                <Label Margin="0,50,0,0" Text=" "/>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Frame x:Name ="Frame" HeightRequest="50" BackgroundColor="#331940" CornerRadius="5" BorderColor ="#5E366A" Margin="30,0,30,10" Padding="5,5,5,5" Grid.Row="0" HasShadow="False" VerticalOptions="End">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="75"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name ="Cow" Source="cowsword.png" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0"/>
+                <Label x:Name ="NewSesh" Text="New Session" FontSize="30" FontAttributes="Bold" FontFamily="TCM" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" TextColor="#00FFCC"/>
+                <Image x:Name ="Frog" Source="gearfrog.png" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="2"/>
+            </Grid>
+        </Frame>
+    </Grid>
+    
+</ContentPage>

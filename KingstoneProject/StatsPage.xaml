@@ -4,6 +4,9 @@
              x:Class="KingstoneProject.StatsPage"
              Title="StatsPage"
              BackgroundColor="#00FFCC">
+    <Shell.TitleView>
+        <Label Grid.Column="1" Grid.Row="0" Text="KINGSTONE  " FontSize="35" FontFamily="Impact" FontAttributes="Italic" TextColor="#00FFCC" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid Margin="0, 0, 0, 0" ColumnSpacing="5">
@@ -316,7 +319,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="D" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="estruction" FontFamily="TCM" FontSize="30"/>
+                            <Span Text="estruction" FontFamily="#" FontSize="30"/>
                         </FormattedString>
                     </Label.FormattedText>
                     <Label.GestureRecognizers>

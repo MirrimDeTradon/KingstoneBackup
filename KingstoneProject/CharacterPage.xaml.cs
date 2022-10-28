@@ -1,6 +1,5 @@
 using KingstoneProject.Models;
 using System.Collections.ObjectModel;
-using static Java.Util.Jar.Attributes;
 
 namespace KingstoneProject;
 
@@ -106,9 +105,6 @@ public partial class CharacterPage : ContentPage
         DistinctionList.Add("Proficiency");
         DistinctionList.Add("Charisma");
         DistinctionList.Add("Awareness");
-        DistinctionList.Add("Destruction");
-        DistinctionList.Add("Transmutation");
-        DistinctionList.Add("Restoration");
         DistinctionPicker.ItemsSource = DistinctionList;
 
         DistinctionPicker.SelectedIndex = -1;

@@ -1,6 +1,4 @@
-using Javax.Net.Ssl;
 using KingstoneProject.Models;
-using Microsoft.Maui.Controls;
 
 
 namespace KingstoneProject;
@@ -11,7 +9,6 @@ public partial class StatsPage : ContentPage
     public StatsPage()
     {
         InitializeComponent();
-        getPreset();
     }
     public async void getPreset()
     {
@@ -46,7 +43,7 @@ public partial class StatsPage : ContentPage
                 {
                     Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
                 }
-                else if (characterSheet.SubBackground.Equals("Character Strength") || characterSheet.SubBackground.Equals("Mania") || characterSheet.SubBackground.Equals("Guile"))
+                else if (characterSheet.SubBackground.Equals("Strong Character") || characterSheet.SubBackground.Equals("Mania") || characterSheet.SubBackground.Equals("Guile"))
                 {
                     Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
                 }
@@ -192,32 +189,29 @@ public partial class StatsPage : ContentPage
 
         if (characterSheet.Background != null)
         {
-            if (characterSheet.Background.Equals("the Edified") & statName.Equals("Strength"))
+            if ((characterSheet.Background.Equals("the Edified") & (statName.Equals("Strength") || statName.Equals("Knowledge"))) || 
+                (characterSheet.Background.Equals("the Lost")  & (statName.Equals("Endurance") || statName.Equals("Charisma"))) ||
+                 (characterSheet.Background.Equals("the Bestials") & (statName.Equals("Charisma") || statName.Equals("Awareness"))))
             {
                 trueStat += 6;
-            }
-            else if (characterSheet.Background.Equals("the Awoken"))
-            {
-                Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
-            }
-            else if (characterSheet.Background.Equals("Worldbearers"))
-            {
-                Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
             }
         }
         if (characterSheet.SubBackground != null)
         {
-            if (characterSheet.SubBackground.Equals("Skill at Crafting") || characterSheet.SubBackground.Equals("Greed") || characterSheet.SubBackground.Equals("Adroit"))
+            if ((characterSheet.SubBackground.Equals("Elfin") & (statName.Equals("Knowledge") || statName.Equals("Agility"))) ||
+                (characterSheet.SubBackground.Equals("Burrowfolk") & (statName.Equals("Ready") || statName.Equals("Proficiency"))) ||
+                 (characterSheet.SubBackground.Equals("Fae") & (statName.Equals("Awareness") || statName.Equals("Charisma"))) ||
+                  (characterSheet.SubBackground.Equals("Undead") & (statName.Equals("Endurance") || statName.Equals("Knowledge"))) ||
+                   (characterSheet.SubBackground.Equals("Vegetation") & (statName.Equals("Proficiency") || statName.Equals("Ready"))) ||
+                    (characterSheet.SubBackground.Equals("Descended") & (statName.Equals("Charisma") || statName.Equals("Agility"))) ||
+                     (characterSheet.SubBackground.Equals("Diminshed") & (statName.Equals("Strength") || statName.Equals("Ready"))) ||
+                     (characterSheet.SubBackground.Equals("Defenders") & (statName.Equals("Strength") || statName.Equals("Proficiency"))))
             {
-                Acuity.Text = (int.Parse(characterSheet.Paw.Substring(2, 1)) + 1).ToString();
-            }
-            else if (characterSheet.SubBackground.Equals("Warrior's Resilience") || characterSheet.SubBackground.Equals("Anger") || characterSheet.SubBackground.Equals("Force"))
+                trueStat += 6;
+            } 
+            else if (characterSheet.SubBackground.Equals("Elemental") & statName.Equals("Agility"))
             {
-                Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
-            }
-            else if (characterSheet.SubBackground.Equals("Character Strength") || characterSheet.SubBackground.Equals("Mania") || characterSheet.SubBackground.Equals("Guile"))
-            {
-                Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
+                trueStat += 18;
             }
         }
 
@@ -345,35 +339,78 @@ public partial class StatsPage : ContentPage
                 }
                 if(characterSheet.CharacterClass != null)
                 {
-                    if(characterSheet.Distinction != null)
+                    if (characterSheet.Distinction != null)
                     {
-                        if(characterSheet.CharacterClass.Equals("Expert") & characterSheet.Distinction.Equals(thisSkill))
+                        if (characterSheet.CharacterClass.Equals("Expert") & characterSheet.Distinction.Equals(thisSkill))
                         {
-                            prop.SetValue(characterSheet, skillValue + 4);
+                            if (skillValue + 4 < 126)
+                            {
+                                prop.SetValue(characterSheet, skillValue + 4);
+                            } else
+                            {
+                                prop.SetValue(characterSheet, 126);
+                            }
+                            goto breakloop;
                         }
                         else
                         {
-                            prop.SetValue(characterSheet, skillValue + 2);
+                            if (skillValue + 2 < 126)
+                            {
+                                prop.SetValue(characterSheet, skillValue + 2);
+                            }
+                            else
+                            {
+                                prop.SetValue(characterSheet, 126);
+                            }
                         }
-                    } else if (characterSheet.SecondaryDiscipline != null)
+                    }
+                    if (characterSheet.SecondaryDiscipline != null)
                     {
                         if (characterSheet.CharacterClass.Equals("Spellweaver") & characterSheet.SecondaryDiscipline.Equals(thisSkill))
                         {
-                            prop.SetValue(characterSheet, skillValue + 1);
+                            if (skillValue + 1 < 126)
+                            {
+                                prop.SetValue(characterSheet, skillValue + 1);
+                            }
+                            else
+                            {
+                                prop.SetValue(characterSheet, 126);
+                            }
                         }
                         else
                         {
-                            prop.SetValue(characterSheet, skillValue + 2);
+                            if (skillValue + 2 < 126)
+                            {
+                                prop.SetValue(characterSheet, skillValue + 2);
+                            }
+                            else
+                            {
+                                prop.SetValue(characterSheet, 126);
+                            }
                         }
                     } else
                     {
-                        prop.SetValue(characterSheet, skillValue + 2);
+                        if (skillValue + 2 < 126)
+                        {
+                            prop.SetValue(characterSheet, skillValue + 2);
+                        }
+                        else
+                        {
+                            prop.SetValue(characterSheet, 126);
+                        }
                     }
                 } else
                 {
-                    prop.SetValue(characterSheet, skillValue + 2);
+                    if (skillValue + 2 < 126)
+                    {
+                        prop.SetValue(characterSheet, skillValue + 2);
+                    }
+                    else
+                    {
+                        prop.SetValue(characterSheet, 126);
+                    }
                 }
-
+                breakloop:
                 await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
                 getPreset();
             }

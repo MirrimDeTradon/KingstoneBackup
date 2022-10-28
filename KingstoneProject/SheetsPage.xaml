@@ -5,6 +5,9 @@
              x:Class="KingstoneProject.SheetsPage"
              Title="SheetsPage"
              BackgroundColor="#00FFCC">
+    <Shell.TitleView>
+        <Label Grid.Column="1" Grid.Row="0" Text="KINGSTONE  " FontSize="35" FontFamily="Impact" FontAttributes="Italic" TextColor="#00FFCC" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <CarouselView x:Name="characterSheetList" PositionChanged="OnPositionChanged">
@@ -41,7 +44,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button TextColor="#00FFCC" FontFamily="TCM" FontSize="20" Text="Generate a Sheet" Grid.Column="1" Clicked="OnNewButtonClicked" />
+                <Button TextColor="#00FFCC" FontFamily="TCM" FontSize="20" Text="Generate a Sheet" Grid.Column="1" BackgroundColor="#331940" Clicked="OnNewButtonClicked" />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

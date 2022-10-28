@@ -5,13 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:KingstoneProject"
     Shell.FlyoutBehavior="Disabled">
-
     <TabBar x:Name="tabbar">
         <ShellContent Title="Sheets" Icon="sheetspagefavicon.png">
             <local:SheetsPage />
         </ShellContent>
         <ShellContent Title="Character" Icon="characterpagefavicon.png" ContentTemplate="{DataTemplate local:CharacterPage}"/>
         <ShellContent Title="Stats" Icon="statspagefavicon.png" ContentTemplate="{DataTemplate local:StatsPage}"/>
+        <ShellContent Title="Marks" Icon="markspagefavicon.png" ContentTemplate="{DataTemplate local:MarksPage}"/>
+        <ShellContent Title="Upgrades" Icon="upgradespagefavicon.png" ContentTemplate="{DataTemplate local:UpgradesPage}"/>
     </TabBar>
 
 </Shell>

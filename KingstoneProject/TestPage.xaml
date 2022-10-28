@@ -5,4 +5,6 @@
     <local:SheetsPage />
     <local:StatsPage />
     <local:CharacterPage />
+    <local:MarksPage />
+    <local:UpgradesPage />
 </TabbedPage>

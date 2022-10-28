@@ -4,6 +4,9 @@
              x:Class="KingstoneProject.CharacterPage"
              Title="CharacterPage"
              BackgroundColor="#00FFCC">
+    <Shell.TitleView>
+        <Label Grid.Column="1" Grid.Row="0" Text="KINGSTONE  " FontSize="35" FontFamily="Impact" FontAttributes="Italic" TextColor="#00FFCC" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout>
             <Grid Margin="40,40,40,20" ColumnSpacing="7.5">
@@ -15,7 +18,7 @@
                     <RowDefinition Height="150" />
                 </Grid.RowDefinitions>
 
-                <ImageButton Grid.Column="0" Grid.Row="0" x:Name ="CharacterImage" Clicked="OnCharacterImageClicked"/>
+                <ImageButton Grid.Column="0" Grid.Row="0" x:Name="CharacterImage" Clicked="OnCharacterImageClicked"/>
                 <Grid Grid.Column="1" VerticalOptions ="Center" x:Name ="grid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -31,7 +34,7 @@
                     </Grid.RowDefinitions>
                 </Grid>
             </Grid>
-            <Entry x:Name="CharacterName" TextChanged ="OnCharacterNameTextChanged" TextColor="#331940" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" HorizontalOptions="Center" IsSpellCheckEnabled ="False" Placeholder="Name" />
+            <Entry x:Name="CharacterName" TextChanged ="OnCharacterNameTextChanged" TextColor="#331940" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" HorizontalOptions="Center" IsSpellCheckEnabled ="false" Placeholder="Name" />
             <Grid Margin="25,20,25,20" ColumnSpacing="15" RowSpacing="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -80,12 +83,12 @@
                 </Frame>
                 <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Left Hand:"/>
                 <Frame Grid.Row="7" Grid.Column="0" BackgroundColor="#331940">
-                    <Entry Grid.Row="7" Grid.Column="0" x:Name="LeftHand" TextChanged ="OnLeftHandTextChanged" TextColor="#00FFCC" MaxLength ="13" FontFamily="TCM" FontSize ="16" VerticalOptions="Center" IsSpellCheckEnabled ="False" Placeholder="Left Hand Gear" />
+                    <Entry Grid.Row="7" Grid.Column="0" x:Name="LeftHand" TextChanged ="OnLeftHandTextChanged" TextColor="#00FFCC" MaxLength ="13" FontFamily="TCM" FontSize ="16" VerticalOptions="Center" IsSpellCheckEnabled ="false" Placeholder="Left Hand Gear" />
                 </Frame>
                 <ImageButton Grid.Row="8" Grid.Column="0" x:Name ="LeftHandImage" Clicked="OnLeftHandImageClicked"/>
                 <Label Grid.Row="6" Grid.Column="1" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Right Hand:"/>
                 <Frame Grid.Row="7" Grid.Column="1" BackgroundColor="#331940">
-                    <Entry Grid.Row="7" Grid.Column="1" x:Name="RightHand" TextChanged ="OnRightHandTextChanged" TextColor="#00FFCC" MaxLength ="13" FontFamily="TCM" FontSize ="16" VerticalOptions="Center" IsSpellCheckEnabled ="False" Placeholder="Right Hand Gear" />
+                    <Entry Grid.Row="7" Grid.Column="1" x:Name="RightHand" TextChanged ="OnRightHandTextChanged" TextColor="#00FFCC" MaxLength ="13" FontFamily="TCM" FontSize ="16" VerticalOptions="Center" IsSpellCheckEnabled ="false" Placeholder="Right Hand Gear" />
                 </Frame>
                 <ImageButton Grid.Row="8" Grid.Column="1" x:Name ="RightHandImage" Clicked="OnRightHandImageClicked"/>
                 <Label Grid.Row="9" Grid.Column="0" VerticalOptions="Center" FontFamily="TCM" FontSize ="18" TextColor="#331940" Text="Foibles:"/>
