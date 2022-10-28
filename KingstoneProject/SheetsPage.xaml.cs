@@ -32,9 +32,14 @@ public partial class SheetsPage : ContentPage
                 if(characterSheetList.CurrentItem != null)
                 {
                     App.CharacterSheetRepo.currentSheetId = (characterSheetList.CurrentItem as CharacterSheet).Id;
+                } else
+                {
+                    Console.WriteLine("yeah its empty");
+                    newCharacterSheet.VerticalOptions = LayoutOptions.Center;
+                    newCSGrid.VerticalOptions = LayoutOptions.Center;
                 }
             }
-        }
+        } 
     }
 
     private async void OnDeleteInvoked(object sender, EventArgs e)

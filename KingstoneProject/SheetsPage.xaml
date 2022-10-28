@@ -9,7 +9,7 @@
         <Label Grid.Column="1" Grid.Row="0" Text="KINGSTONE  " FontSize="35" FontFamily="Impact" FontAttributes="Italic" TextColor="#00FFCC" HorizontalOptions="Center" VerticalOptions="Center"/>
     </Shell.TitleView>
     <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center">
             <CarouselView x:Name="characterSheetList" PositionChanged="OnPositionChanged">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
@@ -35,16 +35,25 @@
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
-            <Entry x:Name="newCharacterSheet" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" HorizontalOptions="Center" Placeholder="Give a Name" />
-
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Entry Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" x:Name="newCharacterSheet" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" Placeholder="Give a Name" />
 
-                <Button TextColor="#00FFCC" FontFamily="TCM" FontSize="20" Text="Generate a Sheet" Grid.Column="1" BackgroundColor="#331940" Clicked="OnNewButtonClicked" />
+                <Grid Grid.Row="1" Grid.Column="0" x:Name="newCSGrid" HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button TextColor="#00FFCC" FontFamily="TCM" FontSize="20" Text="Generate a Sheet" Grid.Column="1" BackgroundColor="#331940" Clicked="OnNewButtonClicked" />
+                </Grid>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

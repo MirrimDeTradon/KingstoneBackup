@@ -11,73 +11,85 @@ public partial class MarksPage : ContentPage
     }
     public async void getPreset()
     {
-        characterSheet = await App.CharacterSheetRepo.GetCharacterSheet(App.CharacterSheetRepo.currentSheetId);
-
-        setUpStat(strengthPlusMinusGrid, characterSheet.Strength, "Strength", new Grid[] { sGrid1, sGrid2, sGrid3, sGrid4, sGrid5, sGrid6 }, strengthGrid);
-        setUpStat(endurancePlusMinusGrid, characterSheet.Endurance, "Endurance", new Grid[] { eGrid1, eGrid2, eGrid3, eGrid4, eGrid5, eGrid6 }, enduranceGrid);
-        setUpStat(readyPlusMinusGrid, characterSheet.Ready, "Ready", new Grid[] { rGrid1, rGrid2, rGrid3, rGrid4, rGrid5, rGrid6 }, readyGrid);
-        setUpStat(agilityPlusMinusGrid, characterSheet.Agility, "Agility", new Grid[] { aGrid1, aGrid2, aGrid3, aGrid4, aGrid5, aGrid6 }, agilityGrid);
-        setUpStat(knowledgePlusMinusGrid, characterSheet.Knowledge, "Knowledge", new Grid[] { kGrid1, kGrid2, kGrid3, kGrid4, kGrid5, kGrid6 }, knowledgeGrid);
-        setUpStat(proficiencyPlusMinusGrid, characterSheet.Proficiency, "Proficiency", new Grid[] { pGrid1, pGrid2, pGrid3, pGrid4, pGrid5, pGrid6 }, proficiencyGrid);
-        setUpStat(charismaPlusMinusGrid, characterSheet.Charisma, "Charisma", new Grid[] { cGrid1, cGrid2, cGrid3, cGrid4, cGrid5, cGrid6 }, charismaGrid);
-        setUpStat(awarenessPlusMinusGrid, characterSheet.Awareness, "Awareness", new Grid[] { awGrid1, awGrid2, awGrid3, awGrid4, awGrid5, awGrid6 }, awarenessGrid);
-        setUpStat(destructionPlusMinusGrid, characterSheet.Destruction, "Destruction", new Grid[] { dGrid1, dGrid2, dGrid3, dGrid4, dGrid5, dGrid6 }, destructionGrid);
-        setUpStat(transmutationPlusMinusGrid, characterSheet.Transmutation, "Transmutation", new Grid[] { tGrid1, tGrid2, tGrid3, tGrid4, tGrid5, tGrid6 }, transmutationGrid);
-        setUpStat(restorationPlusMinusGrid, characterSheet.Restoration, "Restoration", new Grid[] { resGrid1, resGrid2, resGrid3, resGrid4, resGrid5, resGrid6 }, restorationGrid);
-
-        destructionMainGrid.SetValue(IsVisibleProperty, false);
-        destructionGrid.SetValue(IsVisibleProperty, false);
-        transmutationMainGrid.SetValue(IsVisibleProperty, false);
-        transmutationGrid.SetValue(IsVisibleProperty, false);
-        restorationMainGrid.SetValue(IsVisibleProperty, false);
-        restorationGrid.SetValue(IsVisibleProperty, false);
-        if (characterSheet.PrimaryDiscipline != null)
+        if(App.CharacterSheetRepo != null)
         {
-            if (characterSheet.CharacterClass != null)
-            {
-                if (characterSheet.CharacterClass.Equals("Spellweaver") || characterSheet.CharacterClass.Equals("Spellsword"))
-                {
-                    if (characterSheet.PrimaryDiscipline.Equals("Destruction"))
-                    {
-                        destructionMainGrid.SetValue(IsVisibleProperty, true);
-                        destructionGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.PrimaryDiscipline.Equals("Transmutation"))
-                    {
-                        transmutationMainGrid.SetValue(IsVisibleProperty, true);
-                        transmutationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.PrimaryDiscipline.Equals("Restoration"))
-                    {
-                        restorationMainGrid.SetValue(IsVisibleProperty, true);
-                        restorationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                }
-            }
+            characterSheet = await App.CharacterSheetRepo.GetCharacterSheet(App.CharacterSheetRepo.currentSheetId);
         }
-        if (characterSheet.SecondaryDiscipline != null)
+        if (characterSheet != null)
         {
-            if (characterSheet.CharacterClass != null)
+            setUpStat(strengthPlusMinusGrid, characterSheet.Strength, "Strength", new Grid[] { sGrid1, sGrid2, sGrid3, sGrid4, sGrid5, sGrid6 }, strengthGrid);
+            setUpStat(endurancePlusMinusGrid, characterSheet.Endurance, "Endurance", new Grid[] { eGrid1, eGrid2, eGrid3, eGrid4, eGrid5, eGrid6 }, enduranceGrid);
+            setUpStat(readyPlusMinusGrid, characterSheet.Ready, "Ready", new Grid[] { rGrid1, rGrid2, rGrid3, rGrid4, rGrid5, rGrid6 }, readyGrid);
+            setUpStat(agilityPlusMinusGrid, characterSheet.Agility, "Agility", new Grid[] { aGrid1, aGrid2, aGrid3, aGrid4, aGrid5, aGrid6 }, agilityGrid);
+            setUpStat(knowledgePlusMinusGrid, characterSheet.Knowledge, "Knowledge", new Grid[] { kGrid1, kGrid2, kGrid3, kGrid4, kGrid5, kGrid6 }, knowledgeGrid);
+            setUpStat(proficiencyPlusMinusGrid, characterSheet.Proficiency, "Proficiency", new Grid[] { pGrid1, pGrid2, pGrid3, pGrid4, pGrid5, pGrid6 }, proficiencyGrid);
+            setUpStat(charismaPlusMinusGrid, characterSheet.Charisma, "Charisma", new Grid[] { cGrid1, cGrid2, cGrid3, cGrid4, cGrid5, cGrid6 }, charismaGrid);
+            setUpStat(awarenessPlusMinusGrid, characterSheet.Awareness, "Awareness", new Grid[] { awGrid1, awGrid2, awGrid3, awGrid4, awGrid5, awGrid6 }, awarenessGrid);
+            setUpStat(destructionPlusMinusGrid, characterSheet.Destruction, "Destruction", new Grid[] { dGrid1, dGrid2, dGrid3, dGrid4, dGrid5, dGrid6 }, destructionGrid);
+            setUpStat(transmutationPlusMinusGrid, characterSheet.Transmutation, "Transmutation", new Grid[] { tGrid1, tGrid2, tGrid3, tGrid4, tGrid5, tGrid6 }, transmutationGrid);
+            setUpStat(restorationPlusMinusGrid, characterSheet.Restoration, "Restoration", new Grid[] { resGrid1, resGrid2, resGrid3, resGrid4, resGrid5, resGrid6 }, restorationGrid);
+
+            destructionMainGrid.SetValue(IsVisibleProperty, false);
+            destructionGrid.SetValue(IsVisibleProperty, false);
+            transmutationMainGrid.SetValue(IsVisibleProperty, false);
+            transmutationGrid.SetValue(IsVisibleProperty, false);
+            restorationMainGrid.SetValue(IsVisibleProperty, false);
+            restorationGrid.SetValue(IsVisibleProperty, false);
+            if (characterSheet.PrimaryDiscipline != null)
             {
-                if (characterSheet.CharacterClass.Equals("Spellweaver"))
+                if (characterSheet.CharacterClass != null)
                 {
-                    if (characterSheet.SecondaryDiscipline.Equals("Destruction"))
+                    if (characterSheet.CharacterClass.Equals("Spellweaver") || characterSheet.CharacterClass.Equals("Spellsword"))
                     {
-                        destructionMainGrid.SetValue(IsVisibleProperty, true);
-                        destructionGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.SecondaryDiscipline.Equals("Transmutation"))
-                    {
-                        transmutationMainGrid.SetValue(IsVisibleProperty, true);
-                        transmutationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.SecondaryDiscipline.Equals("Restoration"))
-                    {
-                        restorationMainGrid.SetValue(IsVisibleProperty, true);
-                        restorationGrid.SetValue(IsVisibleProperty, true);
+                        if (characterSheet.PrimaryDiscipline.Equals("Destruction"))
+                        {
+                            destructionMainGrid.SetValue(IsVisibleProperty, true);
+                            destructionGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.PrimaryDiscipline.Equals("Transmutation"))
+                        {
+                            transmutationMainGrid.SetValue(IsVisibleProperty, true);
+                            transmutationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.PrimaryDiscipline.Equals("Restoration"))
+                        {
+                            restorationMainGrid.SetValue(IsVisibleProperty, true);
+                            restorationGrid.SetValue(IsVisibleProperty, true);
+                        }
                     }
                 }
             }
+            if (characterSheet.SecondaryDiscipline != null)
+            {
+                if (characterSheet.CharacterClass != null)
+                {
+                    if (characterSheet.CharacterClass.Equals("Spellweaver"))
+                    {
+                        if (characterSheet.SecondaryDiscipline.Equals("Destruction"))
+                        {
+                            destructionMainGrid.SetValue(IsVisibleProperty, true);
+                            destructionGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.SecondaryDiscipline.Equals("Transmutation"))
+                        {
+                            transmutationMainGrid.SetValue(IsVisibleProperty, true);
+                            transmutationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.SecondaryDiscipline.Equals("Restoration"))
+                        {
+                            restorationMainGrid.SetValue(IsVisibleProperty, true);
+                            restorationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                    }
+                }
+            }
+        } else
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                DisplayAlert("Warning", "Go make a Character Sheet on the Sheets Page before you continue!", "Sure");
+            });
+            await Shell.Current.GoToAsync("///sheets");
         }
     }
     protected override void OnAppearing()

@@ -98,4 +98,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionKingstoneProjectHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionKingstoneProjectHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

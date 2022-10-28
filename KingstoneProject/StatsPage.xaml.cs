@@ -12,167 +12,194 @@ public partial class StatsPage : ContentPage
     }
     public async void getPreset()
     {
-        characterSheet = await App.CharacterSheetRepo.GetCharacterSheet(App.CharacterSheetRepo.currentSheetId);
-        if(characterSheet.Paw != null)
+        
+        if (App.CharacterSheetRepo != null)
         {
-            Power.Text = characterSheet.Paw.Substring(0, 1);
-            Acuity.Text = characterSheet.Paw.Substring(2, 1);
-            Will.Text = characterSheet.Paw.Substring(4, 1);
-
-            if (characterSheet.Background != null)
+            characterSheet = await App.CharacterSheetRepo.GetCharacterSheet(App.CharacterSheetRepo.currentSheetId);
+        }
+        if (characterSheet != null)
+        {
+            if (characterSheet.Paw != null)
             {
-                if(characterSheet.Background.Equals("Nature's Keepers")){
-                    Acuity.Text = (int.Parse(characterSheet.Paw.Substring(2, 1)) + 1).ToString();
-                } 
-                else if(characterSheet.Background.Equals("the Awoken"))
+                Power.Text = characterSheet.Paw.Substring(0, 1);
+                Acuity.Text = characterSheet.Paw.Substring(2, 1);
+                Will.Text = characterSheet.Paw.Substring(4, 1);
+
+                if (characterSheet.Background != null)
                 {
-                    Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
-                } 
-                else if (characterSheet.Background.Equals("Worldbearers"))
+                    if (characterSheet.Background.Equals("Nature's Keepers"))
+                    {
+                        Acuity.Text = (int.Parse(characterSheet.Paw.Substring(2, 1)) + 1).ToString();
+                    }
+                    else if (characterSheet.Background.Equals("the Awoken"))
+                    {
+                        Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
+                    }
+                    else if (characterSheet.Background.Equals("Worldbearers"))
+                    {
+                        Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
+                    }
+                }
+                if (characterSheet.SubBackground != null)
                 {
-                    Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
+                    if (characterSheet.SubBackground.Equals("Skill at Crafting") || characterSheet.SubBackground.Equals("Greed") || characterSheet.SubBackground.Equals("Adroit"))
+                    {
+                        Acuity.Text = (int.Parse(characterSheet.Paw.Substring(2, 1)) + 1).ToString();
+                    }
+                    else if (characterSheet.SubBackground.Equals("Warrior's Resilience") || characterSheet.SubBackground.Equals("Anger") || characterSheet.SubBackground.Equals("Force"))
+                    {
+                        Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
+                    }
+                    else if (characterSheet.SubBackground.Equals("Strong Character") || characterSheet.SubBackground.Equals("Mania") || characterSheet.SubBackground.Equals("Guile"))
+                    {
+                        Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
+                    }
                 }
             }
-            if (characterSheet.SubBackground != null)
+            else
             {
-                if (characterSheet.SubBackground.Equals("Skill at Crafting") || characterSheet.SubBackground.Equals("Greed") || characterSheet.SubBackground.Equals("Adroit"))
+                Power.Text = "0";
+                Acuity.Text = "0";
+                Will.Text = "0";
+            }
+            strengthGrid.Clear();
+            List<ImageButton> strengthButtons = getStat(strengthGrid, characterSheet.Strength, "Strength");
+            strengthButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Strength";
+            });
+            enduranceGrid.Clear();
+            List<ImageButton> enduranceButtons = getStat(enduranceGrid, characterSheet.Endurance, "Endurance");
+            enduranceButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Endurance";
+            });
+            readyGrid.Clear();
+            List<ImageButton> readyButtons = getStat(readyGrid, characterSheet.Ready, "Ready");
+            readyButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Ready";
+            });
+            agilityGrid.Clear();
+            List<ImageButton> agilityButtons = getStat(agilityGrid, characterSheet.Agility, "Agility");
+            agilityButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Agility";
+            });
+            knowledgeGrid.Clear();
+            List<ImageButton> knowledgeButtons = getStat(knowledgeGrid, characterSheet.Knowledge, "Knowledge");
+            knowledgeButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Knowledge";
+            });
+            proficiencyGrid.Clear();
+            List<ImageButton> proficiencyButtons = getStat(proficiencyGrid, characterSheet.Proficiency, "Proficiency");
+            proficiencyButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Proficiency";
+            });
+            charismaGrid.Clear();
+            List<ImageButton> charismaButtons = getStat(charismaGrid, characterSheet.Charisma, "Charisma");
+            charismaButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Charisma";
+            });
+            awarenessGrid.Clear();
+            List<ImageButton> awarenessButtons = getStat(awarenessGrid, characterSheet.Awareness, "Awareness");
+            awarenessButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Awareness";
+            });
+            destructionGrid.Clear();
+            List<ImageButton> destructionButtons = getStat(destructionGrid, characterSheet.Destruction, "Destruction");
+            destructionButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Destruction";
+            });
+            transmutationGrid.Clear();
+            List<ImageButton> transmutationButtons = getStat(transmutationGrid, characterSheet.Transmutation, "Transmutation");
+            transmutationButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Transmutation";
+            });
+            restorationGrid.Clear();
+            List<ImageButton> restorationButtons = getStat(restorationGrid, characterSheet.Restoration, "Restoration");
+            restorationButtons.ForEach(delegate (ImageButton imageButton)
+            {
+                imageButton.Clicked += OnSkillClicked;
+                imageButton.BindingContext = "Restoration";
+            });
+            destructionMainGrid.SetValue(IsVisibleProperty, false);
+            destructionGrid.SetValue(IsVisibleProperty, false);
+            transmutationMainGrid.SetValue(IsVisibleProperty, false);
+            transmutationGrid.SetValue(IsVisibleProperty, false);
+            restorationMainGrid.SetValue(IsVisibleProperty, false);
+            restorationGrid.SetValue(IsVisibleProperty, false);
+            if (characterSheet.PrimaryDiscipline != null)
+            {
+                if (characterSheet.CharacterClass != null)
                 {
-                    Acuity.Text = (int.Parse(characterSheet.Paw.Substring(2, 1)) + 1).ToString();
+                    if (characterSheet.CharacterClass.Equals("Spellweaver") || characterSheet.CharacterClass.Equals("Spellsword"))
+                    {
+                        if (characterSheet.PrimaryDiscipline.Equals("Destruction"))
+                        {
+                            destructionMainGrid.SetValue(IsVisibleProperty, true);
+                            destructionGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.PrimaryDiscipline.Equals("Transmutation"))
+                        {
+                            transmutationMainGrid.SetValue(IsVisibleProperty, true);
+                            transmutationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.PrimaryDiscipline.Equals("Restoration"))
+                        {
+                            restorationMainGrid.SetValue(IsVisibleProperty, true);
+                            restorationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                    }
                 }
-                else if (characterSheet.SubBackground.Equals("Warrior's Resilience") || characterSheet.SubBackground.Equals("Anger") || characterSheet.SubBackground.Equals("Force"))
+            }
+            if (characterSheet.SecondaryDiscipline != null)
+            {
+                if (characterSheet.CharacterClass != null)
                 {
-                    Power.Text = (int.Parse(characterSheet.Paw.Substring(0, 1)) + 1).ToString();
-                }
-                else if (characterSheet.SubBackground.Equals("Strong Character") || characterSheet.SubBackground.Equals("Mania") || characterSheet.SubBackground.Equals("Guile"))
-                {
-                    Will.Text = (int.Parse(characterSheet.Paw.Substring(4, 1)) + 1).ToString();
+                    if (characterSheet.CharacterClass.Equals("Spellweaver"))
+                    {
+                        if (characterSheet.SecondaryDiscipline.Equals("Destruction"))
+                        {
+                            destructionMainGrid.SetValue(IsVisibleProperty, true);
+                            destructionGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.SecondaryDiscipline.Equals("Transmutation"))
+                        {
+                            transmutationMainGrid.SetValue(IsVisibleProperty, true);
+                            transmutationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                        else if (characterSheet.SecondaryDiscipline.Equals("Restoration"))
+                        {
+                            restorationMainGrid.SetValue(IsVisibleProperty, true);
+                            restorationGrid.SetValue(IsVisibleProperty, true);
+                        }
+                    }
                 }
             }
         } else
         {
-            Power.Text = "0";
-            Acuity.Text = "0";
-            Will.Text = "0";
-        }
-        strengthGrid.Clear();
-        List<ImageButton> strengthButtons = getStat(strengthGrid, characterSheet.Strength, "Strength");
-        strengthButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Strength";
-        });
-        enduranceGrid.Clear();
-        List<ImageButton> enduranceButtons = getStat(enduranceGrid, characterSheet.Endurance, "Endurance");
-        enduranceButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Endurance";
-        });
-        readyGrid.Clear();
-        List<ImageButton> readyButtons = getStat(readyGrid, characterSheet.Ready, "Ready");
-        readyButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Ready";
-        });
-        agilityGrid.Clear();
-        List<ImageButton> agilityButtons = getStat(agilityGrid, characterSheet.Agility, "Agility");
-        agilityButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Agility";
-        });
-        knowledgeGrid.Clear();
-        List<ImageButton> knowledgeButtons = getStat(knowledgeGrid, characterSheet.Knowledge, "Knowledge");
-        knowledgeButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Knowledge";
-        });
-        proficiencyGrid.Clear();
-        List<ImageButton> proficiencyButtons = getStat(proficiencyGrid, characterSheet.Proficiency, "Proficiency");
-        proficiencyButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Proficiency";
-        });
-        charismaGrid.Clear();
-        List<ImageButton> charismaButtons = getStat(charismaGrid, characterSheet.Charisma, "Charisma");
-        charismaButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Charisma";
-        });
-        awarenessGrid.Clear();
-        List<ImageButton> awarenessButtons = getStat(awarenessGrid, characterSheet.Awareness, "Awareness");
-        awarenessButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Awareness";
-        });
-        destructionGrid.Clear();
-        List<ImageButton> destructionButtons = getStat(destructionGrid, characterSheet.Destruction, "Destruction");
-        destructionButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Destruction";
-        });
-        transmutationGrid.Clear();
-        List<ImageButton> transmutationButtons = getStat(transmutationGrid, characterSheet.Transmutation, "Transmutation");
-        transmutationButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Transmutation";
-        });
-        restorationGrid.Clear();
-        List<ImageButton> restorationButtons = getStat(restorationGrid, characterSheet.Restoration, "Restoration");
-        restorationButtons.ForEach(delegate (ImageButton imageButton) {
-            imageButton.Clicked += OnSkillClicked;
-            imageButton.BindingContext = "Restoration";
-        });
-        destructionMainGrid.SetValue(IsVisibleProperty, false);
-        destructionGrid.SetValue(IsVisibleProperty, false);
-        transmutationMainGrid.SetValue(IsVisibleProperty, false);
-        transmutationGrid.SetValue(IsVisibleProperty, false);
-        restorationMainGrid.SetValue(IsVisibleProperty, false);
-        restorationGrid.SetValue(IsVisibleProperty, false);
-        if (characterSheet.PrimaryDiscipline != null)
-        {
-            if (characterSheet.CharacterClass != null)
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                if (characterSheet.CharacterClass.Equals("Spellweaver") || characterSheet.CharacterClass.Equals("Spellsword"))
-                {
-                    if (characterSheet.PrimaryDiscipline.Equals("Destruction"))
-                    {
-                        destructionMainGrid.SetValue(IsVisibleProperty, true);
-                        destructionGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.PrimaryDiscipline.Equals("Transmutation"))
-                    {
-                        transmutationMainGrid.SetValue(IsVisibleProperty, true);
-                        transmutationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.PrimaryDiscipline.Equals("Restoration"))
-                    {
-                        restorationMainGrid.SetValue(IsVisibleProperty, true);
-                        restorationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                }
-            }
-        }
-        if (characterSheet.SecondaryDiscipline != null)
-        {
-            if (characterSheet.CharacterClass != null)
-            {
-                if (characterSheet.CharacterClass.Equals("Spellweaver"))
-                {
-                    if (characterSheet.SecondaryDiscipline.Equals("Destruction"))
-                    {
-                        destructionMainGrid.SetValue(IsVisibleProperty, true);
-                        destructionGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.SecondaryDiscipline.Equals("Transmutation"))
-                    {
-                        transmutationMainGrid.SetValue(IsVisibleProperty, true);
-                        transmutationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                    else if (characterSheet.SecondaryDiscipline.Equals("Restoration"))
-                    {
-                        restorationMainGrid.SetValue(IsVisibleProperty, true);
-                        restorationGrid.SetValue(IsVisibleProperty, true);
-                    }
-                }
-            }
+                DisplayAlert("Warning", "Go make a Character Sheet on the Sheets Page before you continue!", "Sure");
+            });
+            await Shell.Current.GoToAsync("///sheets");
         }
     }
     protected override void OnAppearing()
@@ -337,12 +364,20 @@ public partial class StatsPage : ContentPage
                     }
                     await DisplayAlert("Failure.", alert, "OK");
                 }
+                Boolean lvlUp = false;
                 if(characterSheet.CharacterClass != null)
                 {
                     if (characterSheet.Distinction != null)
                     {
                         if (characterSheet.CharacterClass.Equals("Expert") & characterSheet.Distinction.Equals(thisSkill))
                         {
+                            foreach(int h in pointMarks)
+                            {
+                                if (!lvlUp)
+                                {
+                                    lvlUp = skillValue == h - 4 ? true : skillValue == h - 3 ? true : skillValue == h - 2 ? true : skillValue == h - 1 ? true : false;
+                                } 
+                            }
                             if (skillValue + 4 < 126)
                             {
                                 prop.SetValue(characterSheet, skillValue + 4);
@@ -354,6 +389,13 @@ public partial class StatsPage : ContentPage
                         }
                         else
                         {
+                            foreach (int h in pointMarks)
+                            {
+                                if (!lvlUp)
+                                {
+                                    lvlUp = skillValue == h - 2 ? true : skillValue == h - 1 ? true : false;
+                                }
+                            }
                             if (skillValue + 2 < 126)
                             {
                                 prop.SetValue(characterSheet, skillValue + 2);
@@ -362,12 +404,20 @@ public partial class StatsPage : ContentPage
                             {
                                 prop.SetValue(characterSheet, 126);
                             }
+                            goto breakloop;
                         }
                     }
                     if (characterSheet.SecondaryDiscipline != null)
                     {
                         if (characterSheet.CharacterClass.Equals("Spellweaver") & characterSheet.SecondaryDiscipline.Equals(thisSkill))
                         {
+                            foreach (int h in pointMarks)
+                            {
+                                if (!lvlUp)
+                                {
+                                    lvlUp = skillValue == h - 1 ? true : false;
+                                }
+                            }
                             if (skillValue + 1 < 126)
                             {
                                 prop.SetValue(characterSheet, skillValue + 1);
@@ -376,9 +426,17 @@ public partial class StatsPage : ContentPage
                             {
                                 prop.SetValue(characterSheet, 126);
                             }
+                            goto breakloop;
                         }
                         else
                         {
+                            foreach (int h in pointMarks)
+                            {
+                                if (!lvlUp)
+                                {
+                                    lvlUp = skillValue == h - 2 ? true : skillValue == h - 1 ? true : false;
+                                }
+                            }
                             if (skillValue + 2 < 126)
                             {
                                 prop.SetValue(characterSheet, skillValue + 2);
@@ -387,9 +445,17 @@ public partial class StatsPage : ContentPage
                             {
                                 prop.SetValue(characterSheet, 126);
                             }
+                            goto breakloop;
                         }
                     } else
                     {
+                        foreach (int h in pointMarks)
+                        {
+                            if (!lvlUp)
+                            {
+                                lvlUp = skillValue == h - 2 ? true : skillValue == h - 1 ? true : false;
+                            }
+                        }
                         if (skillValue + 2 < 126)
                         {
                             prop.SetValue(characterSheet, skillValue + 2);
@@ -398,9 +464,17 @@ public partial class StatsPage : ContentPage
                         {
                             prop.SetValue(characterSheet, 126);
                         }
+                        goto breakloop;
                     }
                 } else
                 {
+                    foreach (int h in pointMarks)
+                    {
+                        if (!lvlUp)
+                        {
+                            lvlUp = skillValue == h - 2 ? true : skillValue == h - 1 ? true : false;
+                        }
+                    }
                     if (skillValue + 2 < 126)
                     {
                         prop.SetValue(characterSheet, skillValue + 2);
@@ -409,10 +483,15 @@ public partial class StatsPage : ContentPage
                     {
                         prop.SetValue(characterSheet, 126);
                     }
+                    goto breakloop;
                 }
                 breakloop:
                 await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
                 getPreset();
+                if (lvlUp)
+                {
+                    await DisplayAlert("Congratulations!", "You gained a level in " + thisSkill + ".\nIt is now level " + (skill + 1) + ".", "Excelsior!");
+                }
             }
         } else
         {
