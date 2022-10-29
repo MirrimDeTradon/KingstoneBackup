@@ -34,7 +34,6 @@ public partial class SheetsPage : ContentPage
                     App.CharacterSheetRepo.currentSheetId = (characterSheetList.CurrentItem as CharacterSheet).Id;
                 } else
                 {
-                    Console.WriteLine("yeah its empty");
                     newCharacterSheet.VerticalOptions = LayoutOptions.Center;
                     newCSGrid.VerticalOptions = LayoutOptions.Center;
                 }

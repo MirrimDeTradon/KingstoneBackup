@@ -1,8 +1,4 @@
 using KingstoneProject.Models;
-using Microsoft.Maui.Controls;
-using System.Diagnostics;
-using System.Reflection;
-using static Android.Util.EventLogTags;
 
 namespace KingstoneProject;
 
@@ -182,9 +178,9 @@ public partial class UpgradesPage : ContentPage
                 baseBG.Source = "unlockedcolour.png";
             }
             grid.Add(baseBG, column, row);
-            Label index = new Label { Text = (i + 1).ToString(), Margin = 5, HorizontalOptions = LayoutOptions.Start, VerticalOptions = LayoutOptions.Start };
+            Label index = new Label { TextColor = Color.FromArgb("331940"), Text = (i + 1).ToString(), Margin = 5, HorizontalOptions = LayoutOptions.Start, VerticalOptions = LayoutOptions.Start };
             grid.Add(index, column, row);
-            Label description = new Label { Text = upgradeInfos[i].Item1, Margin = new Thickness(10, 0, 10, 0), HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
+            Label description = new Label { TextColor = Color.FromArgb("331940"), Text = upgradeInfos[i].Item1, Margin = new Thickness(10, 0, 10, 0), HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center };
             grid.Add(description, column, row);
             for (int b = 0; b < sessionlyUpgrades.Count(); b++)
             {
@@ -215,7 +211,7 @@ public partial class UpgradesPage : ContentPage
                         prop.SetValue(upgradesTracker, maxUses);
                         await App.UpgradesTrackerRepository.UpdateUpgradesTracker(upgradesTracker);
                     }
-                    Label max = new Label { Text = maxUses.ToString(), Margin = 5, HorizontalOptions = LayoutOptions.End, VerticalOptions = LayoutOptions.Start };
+                    Label max = new Label { TextColor = Color.FromArgb("331940"), Text = maxUses.ToString(), Margin = 5, HorizontalOptions = LayoutOptions.End, VerticalOptions = LayoutOptions.Start };
                     grid.Add(max, column, row);
                     if (remainingUses > 0)
                     {

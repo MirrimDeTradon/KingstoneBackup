@@ -7,115 +7,58 @@
     <Shell.TitleView>
         <Label Grid.Column="1" Grid.Row="0" Text="KINGSTONE  " FontSize="35" FontFamily="Impact" FontAttributes="Italic" TextColor="#00FFCC" HorizontalOptions="Center" VerticalOptions="Center"/>
     </Shell.TitleView>
-    <ScrollView>
-        <VerticalStackLayout>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="crown.png" Margin="75,75,75,75"  HorizontalOptions="Center" VerticalOptions="Center"/>
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="I" />
-                <Label Grid.Column="1" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="II" />
-                <Label Grid.Column="2" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="III" />
-                <Label Grid.Column="3" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="IV" />
-                <Label Grid.Column="4" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="V" />
-                <Label Grid.Column="5" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="VI" />
-            </Grid>
+                    <Label Grid.Column="0" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="I" />
+                    <Label Grid.Column="1" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="II" />
+                    <Label Grid.Column="2" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="III" />
+                    <Label Grid.Column="3" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="IV" />
+                    <Label Grid.Column="4" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="V" />
+                    <Label Grid.Column="5" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="VI" />
+                </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Strength" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="S" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="trength" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="strengthPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="strengthGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="sGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Strength" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="S" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="trength" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="strengthPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="sGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="sGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="sGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="sGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="sGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="strengthGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -127,98 +70,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="sGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="sGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="sGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="sGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="sGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="sGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Endurance" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="E" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="ndurance" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="endurancePlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="enduranceGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="eGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Endurance" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="E" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="ndurance" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="endurancePlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="eGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="eGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="eGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="eGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="eGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="enduranceGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -230,98 +173,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="eGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="eGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="eGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="eGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="eGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="eGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Ready" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="R" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="eady" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="readyPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="readyGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="rGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Ready" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="R" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="eady" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="readyPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="rGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="rGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="rGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="rGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="rGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="readyGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -333,98 +276,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="rGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="rGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="rGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="rGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="rGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="rGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Agility" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="A" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="gility" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="agilityPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="agilityGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="aGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Agility" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="A" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="gility" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="agilityPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="aGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="aGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="aGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="aGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="aGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="agilityGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -436,98 +379,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="aGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="aGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="aGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="aGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="aGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="aGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Knowledge" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="K" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="nowledge" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="knowledgePlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="knowledgeGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="kGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Knowledge" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="K" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="nowledge" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="knowledgePlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="kGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="kGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="kGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="kGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="kGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="knowledgeGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -539,98 +482,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="kGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="kGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="kGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="kGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="kGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="kGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Proficiency" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="P" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="roficiency" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="proficiencyPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="proficiencyGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="pGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Proficiency" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="P" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="roficiency" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="proficiencyPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="pGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="pGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="pGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="pGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="pGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="proficiencyGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -642,98 +585,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="pGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="pGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="pGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="pGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="pGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="pGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Charisma" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="C" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="harisma" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="charismaPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="charismaGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="cGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Charisma" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="C" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="harisma" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="charismaPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="cGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="cGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="cGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="cGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="cGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="charismaGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -745,98 +688,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="cGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="cGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="cGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="cGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="cGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="cGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Awareness" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="A" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="wareness" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="awarenessPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="awarenessGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="awGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Awareness" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="A" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="wareness" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="awarenessPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="awGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="awGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="awGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="awGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="awGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="awarenessGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -848,98 +791,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="awGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="awGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="awGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="awGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="awGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="awGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5" x:Name="destructionMainGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Destruction" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="D" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="estruction" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="destructionPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5" x:Name="destructionMainGrid">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="destructionGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="dGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Destruction" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="D" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="estruction" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="destructionPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="dGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="dGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="dGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="dGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="dGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="destructionGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -951,98 +894,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="dGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="dGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="dGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="dGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="dGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="dGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5" x:Name="transmutationMainGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Transmutation" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="T" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="ransmutation" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="transmutationPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5" x:Name="transmutationMainGrid">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="transmutationGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="tGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Transmutation" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="T" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="ransmutation" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="transmutationPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="tGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="tGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="tGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="tGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="tGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="transmutationGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -1054,98 +997,98 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="tGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="tGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="tGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="tGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="tGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="tGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="20,0,0,5" ColumnSpacing="5" x:Name="restorationMainGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" BindingContext="Restoration" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="R" FontFamily="Harlow" FontSize="40"/>
-                            <Span Text="estoration" FontFamily="TCM" FontSize="30"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="restorationPlusMinusGrid">
+                <Grid Margin="20,0,0,5" ColumnSpacing="5" x:Name="restorationMainGrid">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="70" />
-                        <ColumnDefinition Width="70" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-            <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="restorationGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="resGrid1">
-                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" BindingContext="Restoration" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="Start" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="R" FontFamily="Harlow" FontSize="40"/>
+                                <Span Text="estoration" FontFamily="TCM" FontSize="30"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Center" x:Name="restorationPlusMinusGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="resGrid2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="resGrid3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="resGrid4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="resGrid5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30" />
-                    </Grid.RowDefinitions>
-                </Grid>
-                <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="resGrid6">
+                <Grid Margin="0, 0, 0, 0" ColumnSpacing="5" x:Name ="restorationGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -1157,26 +1100,89 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" />
                     </Grid.RowDefinitions>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="0" x:Name ="resGrid1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="1" x:Name ="resGrid2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="2" x:Name ="resGrid3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="3" x:Name ="resGrid4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="4" x:Name ="resGrid5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Grid Margin="0, 0, 0, 0" ColumnSpacing="0" Grid.Column="5" x:Name ="resGrid6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                    </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid Margin="0, 10, 0, 0" ColumnSpacing="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                <Grid Margin="0, 10, 0, 0" ColumnSpacing="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="I" />
-                <Label Grid.Column="1" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="II" />
-                <Label Grid.Column="2" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="III" />
-                <Label Grid.Column="3" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="IV" />
-                <Label Grid.Column="4" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="V" />
-                <Label Grid.Column="5" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="VI" />
-            </Grid>
-        </VerticalStackLayout>
-    </ScrollView>
+                    <Label Grid.Column="0" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="I" />
+                    <Label Grid.Column="1" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="II" />
+                    <Label Grid.Column="2" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="III" />
+                    <Label Grid.Column="3" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="IV" />
+                    <Label Grid.Column="4" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="V" />
+                    <Label Grid.Column="5" FontSize ="25" HorizontalOptions="Center" TextColor="#331940" FontAutoScalingEnabled="False" LineBreakMode="NoWrap" Text="VI" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

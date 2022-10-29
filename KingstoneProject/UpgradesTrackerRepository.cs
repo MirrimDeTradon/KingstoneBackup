@@ -7,6 +7,7 @@ using SQLite;
 using KingstoneProject.Models;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
 
 namespace KingstoneProject
 {
@@ -14,6 +15,7 @@ namespace KingstoneProject
     {
         string _dbPath;
         private SQLiteAsyncConnection conn;
+        private SQLiteConnection conn2;
         public string StatusMessage { get; set; }
         public int currentSheetId { get; set; }
         private async Task Init()
@@ -25,21 +27,28 @@ namespace KingstoneProject
 
             await conn.CreateTableAsync<UpgradesTracker>();
         }
+        private void Init2()
+        {
+            if (conn2 != null)
+                return;
+
+            conn2 = new SQLiteConnection(_dbPath);
+
+            conn2.CreateTable<UpgradesTracker>();
+        }
 
         public UpgradesTrackerRepository(string dbPath)
         {
             _dbPath = dbPath;
         }
 
-        public void AddNewUpgradesTracker(int characterId, SQLiteConnection conn2)
+        public void AddNewUpgradesTracker(int characterId)
         {
             int result = 0;
             try
             {
-
-                result = conn2.Insert(new UpgradesTracker {CharacterId = characterId, s2 = -1, s4 = -1, e3 = -1, e5 = -1, a3 = -1, a5 = -1, aw1 = -1, aw2 = -1, aw4 = -1, aw6 = -1, c2 = -1, c3 = -1, c5 = -1, d1 = -1, d2 = -1, k1 = -1, k3 = -1, k5 = -1, k6 = -1, p2 = -1, p3 = -1, p4 = -1, r1 = -1, r2 = -1, r5 = -1, re1 = -1, t1 = -1, t2 = -1, t3 = -1});
-
-
+                Init2();
+                result = conn2.Insert(new UpgradesTracker { CharacterId = characterId, s2 = -1, s4 = -1, e3 = -1, e5 = -1, a3 = -1, a5 = -1, aw1 = -1, aw2 = -1, aw4 = -1, aw6 = -1, c2 = -1, c3 = -1, c5 = -1, d1 = -1, d2 = -1, k1 = -1, k3 = -1, k5 = -1, k6 = -1, p2 = -1, p3 = -1, p4 = -1, r1 = -1, r2 = -1, r5 = -1, re1 = -1, t1 = -1, t2 = -1, t3 = -1 });
             }
             catch (Exception ex)
             {

@@ -43,7 +43,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Entry Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" x:Name="newCharacterSheet" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" Placeholder="Give a Name" />
+                <Entry Grid.Row="0" Grid.Column="0" TextColor="#331940" HorizontalOptions="Center" x:Name="newCharacterSheet" FontFamily ="Ringbearer" MaxLength ="16" FontSize ="25" Placeholder="Give a Name" />
 
                 <Grid Grid.Row="1" Grid.Column="0" x:Name="newCSGrid" HorizontalOptions="Center">
                     <Grid.ColumnDefinitions>

@@ -59,7 +59,7 @@ namespace KingstoneProject
 
                 int LastRowID = (int)LastRowID64;
 
-                App.UpgradesTrackerRepository.AddNewUpgradesTracker(LastRowID, conn2);
+                App.UpgradesTrackerRepository.AddNewUpgradesTracker(LastRowID);
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
             }

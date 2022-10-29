@@ -231,7 +231,7 @@ public partial class StatsPage : ContentPage
                   (characterSheet.SubBackground.Equals("Undead") & (statName.Equals("Endurance") || statName.Equals("Knowledge"))) ||
                    (characterSheet.SubBackground.Equals("Vegetation") & (statName.Equals("Proficiency") || statName.Equals("Ready"))) ||
                     (characterSheet.SubBackground.Equals("Descended") & (statName.Equals("Charisma") || statName.Equals("Agility"))) ||
-                     (characterSheet.SubBackground.Equals("Diminshed") & (statName.Equals("Strength") || statName.Equals("Ready"))) ||
+                     (characterSheet.SubBackground.Equals("Diminished") & (statName.Equals("Strength") || statName.Equals("Ready"))) ||
                      (characterSheet.SubBackground.Equals("Defenders") & (statName.Equals("Strength") || statName.Equals("Proficiency"))))
             {
                 trueStat += 6;

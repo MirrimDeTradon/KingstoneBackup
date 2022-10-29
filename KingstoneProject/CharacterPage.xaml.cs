@@ -1,6 +1,5 @@
 using KingstoneProject.Models;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace KingstoneProject;
 
@@ -16,13 +15,15 @@ public partial class CharacterPage : ContentPage
     ObservableCollection<String> SecondaryDisciplineList = new();
 
     public CharacterPage()
-	{
+    {
         InitializeComponent();
     }
+
     public async void getPreset()
     {
-        if(App.CharacterSheetRepo != null){
-            characterSheet = await App.CharacterSheetRepo.GetCharacterSheet(App.CharacterSheetRepo.currentSheetId);
+        if (App.CharacterSheetRepo != null)
+        {
+            characterSheet = await GetSheet();
         }
         if (characterSheet != null)
         {
@@ -39,11 +40,7 @@ public partial class CharacterPage : ContentPage
                 }
             }
 
-            if (characterSheet.Name is not null)
-            {
-                CharacterName.Text = characterSheet.Name;
-            }
-
+            CharacterName.Text = characterSheet.Name;
 
             backgroundList.Add("Nature's Keepers");
             backgroundList.Add("the Edified");
@@ -57,6 +54,7 @@ public partial class CharacterPage : ContentPage
             if (characterSheet.Background != null)
             {
                 backgroundPicker.SelectedIndex = backgroundList.IndexOf(characterSheet.Background);
+                Background.Source = characterSheet.Background.Equals("Nature's Keepers") ? "natures.png" : characterSheet.Background.Equals("the Edified") ? "edified.png" : characterSheet.Background.Equals("the Lost") ? "lost.png" : characterSheet.Background.Equals("the Bestials") ? "bestials.png" : characterSheet.Background.Equals("the Awoken") ? "awoken.png" : characterSheet.Background.Equals("Worldbearers") ? "worldbearers.png" : "";
             }
             subBackgroundPicker.ItemsSource = subBackgroundList;
 
@@ -153,17 +151,6 @@ public partial class CharacterPage : ContentPage
                     DistinctionLabel.SetValue(IsVisibleProperty, false);
                     DistinctionFrame.SetValue(IsVisibleProperty, false);
                 }
-            } else
-            {
-                PrimaryDisciplinePicker.SetValue(IsVisibleProperty, false);
-                PrimaryDisciplineLabel.SetValue(IsVisibleProperty, false);
-                PrimaryDisciplineFrame.SetValue(IsVisibleProperty, false);
-                SecondaryDisciplinePicker.SetValue(IsVisibleProperty, false);
-                SecondaryDisciplineLabel.SetValue(IsVisibleProperty, false);
-                SecondaryDisciplineFrame.SetValue(IsVisibleProperty, false);
-                DistinctionPicker.SetValue(IsVisibleProperty, false);
-                DistinctionLabel.SetValue(IsVisibleProperty, false);
-                DistinctionFrame.SetValue(IsVisibleProperty, false);
             }
 
             SecondaryDisciplineList.Clear();
@@ -234,16 +221,9 @@ public partial class CharacterPage : ContentPage
                     RightHandImage.Source = characterSheet.RightHandImage;
                 }
             }
-            if (characterSheet.Foibles != null)
-            {
-                FoibleEditor.Text = characterSheet.Foibles;
-            }
-            if (characterSheet.Specials != null)
-            {
-                SpecialEditor.Text = characterSheet.Specials;
-            }
-        }
-        else
+            FoibleEditor.Text = characterSheet.Foibles;
+            SpecialEditor.Text = characterSheet.Specials;
+        } else
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
@@ -251,6 +231,10 @@ public partial class CharacterPage : ContentPage
             });
             await Shell.Current.GoToAsync("///sheets");
         }
+    }
+    public async Task<CharacterSheet> GetSheet()
+    {
+        return await App.CharacterSheetRepo.GetCharacterSheet(App.CharacterSheetRepo.currentSheetId);
     }
 
     protected override void OnAppearing()
@@ -276,21 +260,24 @@ public partial class CharacterPage : ContentPage
             await stream.CopyToAsync(newStream);
 
         CharacterImage.Source = newFile;
-        characterSheet.CharacterImage = newFile;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet charactersheet = await GetSheet();
+        charactersheet.CharacterImage = newFile;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(charactersheet);
     }
 
     private async void OnCharacterNameTextChanged(object sender, TextChangedEventArgs e)
     {
-        characterSheet.Name = CharacterName.Text;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet charactersheet = await GetSheet();
+        charactersheet.Name = CharacterName.Text;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(charactersheet);
     }
 
-    public void GetHarm()
+    public async void GetHarm()
     {
+        CharacterSheet sheet = await GetSheet();
         List<ImageButton> Harm = new List<ImageButton>();
-        int HarmFestered = characterSheet.HarmFestered;
-        int HarmTaken = characterSheet.HarmTaken;
+        int HarmFestered = sheet.HarmFestered;
+        int HarmTaken = sheet.HarmTaken;
         grid = grid as Grid;
         grid.Clear();
         ImageButton Harm1 = new ImageButton();
@@ -314,21 +301,25 @@ public partial class CharacterPage : ContentPage
         ImageButton Harm10 = new ImageButton();
         Harm.Add(Harm10);
         int HarmTotal = 0;
-        if (characterSheet.CharacterClass == null || (characterSheet.CharacterClass.Equals("Spellweaver")))
+        if (sheet.CharacterClass == null || (sheet.CharacterClass.Equals("Spellweaver")))
         {
             HarmTotal = 5;
-        } else if (characterSheet.CharacterClass.Equals("Spellsword")){
+        }
+        else if (sheet.CharacterClass.Equals("Spellsword"))
+        {
             HarmTotal = 6;
-        } else if (characterSheet.CharacterClass.Equals("Expert")){
+        }
+        else if (sheet.CharacterClass.Equals("Expert"))
+        {
             HarmTotal = 7;
         }
 
-        if(characterSheet.Endurance >= 18)
+        if (sheet.Endurance >= 18)
         {
             HarmTotal++;
         }
 
-        if (characterSheet.Endurance >= 126)
+        if (sheet.Endurance >= 126)
         {
             HarmTotal += 2;
         }
@@ -349,7 +340,7 @@ public partial class CharacterPage : ContentPage
             }
         }
 
-        
+
         if ((HarmTotal == 5) || (HarmTotal == 0))
         {
             grid.Add(Harm1, 1, 2);
@@ -357,7 +348,8 @@ public partial class CharacterPage : ContentPage
             grid.Add(Harm3, 1, 1);
             grid.Add(Harm4, 3, 1);
             grid.Add(Harm5, 2, 0);
-        } else if(HarmTotal == 6)
+        }
+        else if (HarmTotal == 6)
         {
             grid.Add(Harm1, 1, 2);
             grid.Add(Harm2, 2, 2);
@@ -365,7 +357,8 @@ public partial class CharacterPage : ContentPage
             grid.Add(Harm4, 1, 1);
             grid.Add(Harm5, 3, 1);
             grid.Add(Harm6, 2, 0);
-        } else if (HarmTotal == 7)
+        }
+        else if (HarmTotal == 7)
         {
             grid.Add(Harm1, 1, 2);
             grid.Add(Harm2, 2, 2);
@@ -374,7 +367,8 @@ public partial class CharacterPage : ContentPage
             grid.Add(Harm5, 2, 1);
             grid.Add(Harm6, 3, 1);
             grid.Add(Harm7, 2, 0);
-        } else if (HarmTotal == 8)
+        }
+        else if (HarmTotal == 8)
         {
             grid.Add(Harm1, 0, 2);
             grid.Add(Harm2, 1, 2);
@@ -384,7 +378,8 @@ public partial class CharacterPage : ContentPage
             grid.Add(Harm6, 2, 1);
             grid.Add(Harm7, 3, 1);
             grid.Add(Harm8, 2, 0);
-        } else if (HarmTotal == 9)
+        }
+        else if (HarmTotal == 9)
         {
             grid.Add(Harm1, 0, 2);
             grid.Add(Harm2, 1, 2);
@@ -395,7 +390,8 @@ public partial class CharacterPage : ContentPage
             grid.Add(Harm7, 2, 1);
             grid.Add(Harm8, 3, 1);
             grid.Add(Harm9, 2, 0);
-        } else if (HarmTotal == 10)
+        }
+        else if (HarmTotal == 10)
         {
             grid.Add(Harm1, 0, 2);
             grid.Add(Harm2, 1, 2);
@@ -414,87 +410,99 @@ public partial class CharacterPage : ContentPage
     {
         ImageButton button = sender as ImageButton;
         string path = button.Source.ToString();
-        path = path.Remove(0,6);
+        path = path.Remove(0, 6);
+        CharacterSheet sheet = await GetSheet();
 
         if (path.Equals("harmcircle.png"))
         {
             button.Source = "harmcirclefilled.png";
-            characterSheet.HarmTaken++;
-            await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
-        } 
+            sheet.HarmTaken++;
+            await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
+        }
         else if (path.Equals("harmcirclefilled.png"))
         {
             button.Source = "harmcirclefestered.png";
-            characterSheet.HarmTaken--;
-            characterSheet.HarmFestered++;
-            await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
-        } 
+            sheet.HarmTaken--;
+            sheet.HarmFestered++;
+            await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
+        }
         else if (path.Equals("harmcirclefestered.png"))
         {
             button.Source = "harmcircle.png";
-            characterSheet.HarmFestered--;
-            await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+            sheet.HarmFestered--;
+            await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
         }
     }
 
     private async void OnBackgroundPickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.Background = backgroundPicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.Background = backgroundPicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
+        if(sheet.Background != null)
+        {
+            Background.IsVisible = true;
+            Background.Source = sheet.Background.Equals("Nature's Keepers") ? "natures.png" : sheet.Background.Equals("the Edified") ? "edified.png" : sheet.Background.Equals("the Lost") ? "lost.png" : sheet.Background.Equals("the Bestials") ? "bestials.png" : sheet.Background.Equals("the Awoken") ? "awoken.png" : sheet.Background.Equals("Worldbearers") ? "worldbearers.png" : "";
+        } else
+        {
+            Background.IsVisible = false;
+        }
         subBackgroundList.Clear();
-        if (characterSheet.Background == "Nature's Keepers")
+        if (sheet.Background == "Nature's Keepers")
         {
             subBackgroundList.Add("Elfin");
             subBackgroundList.Add("Burrowfolk");
             subBackgroundList.Add("Fae");
         }
-        else if (characterSheet.Background == "the Edified")
+        else if (sheet.Background == "the Edified")
         {
             subBackgroundList.Add("Skill at Crafting");
             subBackgroundList.Add("Strong Character");
             subBackgroundList.Add("Warrior's Resilience");
         }
-        else if (characterSheet.Background == "the Lost")
+        else if (sheet.Background == "the Lost")
         {
             subBackgroundList.Add("Anger");
             subBackgroundList.Add("Greed");
             subBackgroundList.Add("Mania");
         }
-        else if (characterSheet.Background == "the Bestials")
+        else if (sheet.Background == "the Bestials")
         {
             subBackgroundList.Add("Force");
             subBackgroundList.Add("Guile");
             subBackgroundList.Add("Adroit");
         }
-        else if (characterSheet.Background == "the Awoken")
+        else if (sheet.Background == "the Awoken")
         {
             subBackgroundList.Add("Undead");
             subBackgroundList.Add("Elemental");
             subBackgroundList.Add("Vegetation");
         }
-        else if (characterSheet.Background == "Worldbearers")
+        else if (sheet.Background == "Worldbearers")
         {
             subBackgroundList.Add("Descended");
             subBackgroundList.Add("Diminished");
             subBackgroundList.Add("Defenders");
         }
-        
+
         subBackgroundPicker.ItemsSource = subBackgroundList;
         subBackgroundPicker.SelectedIndex = -1;
-        if (characterSheet.SubBackground != null)
+        if (sheet.SubBackground != null)
         {
-            subBackgroundPicker.SelectedIndex = subBackgroundList.IndexOf(characterSheet.SubBackground);
+            subBackgroundPicker.SelectedIndex = subBackgroundList.IndexOf(sheet.SubBackground);
         }
     }
     private async void OnSubBackgroundPickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.SubBackground = subBackgroundPicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.SubBackground = subBackgroundPicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
     private async void OnClassPickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.CharacterClass = classPicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.CharacterClass = classPicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
         GetHarm();
         DistinctionPicker.SetValue(IsVisibleProperty, true);
         DistinctionLabel.SetValue(IsVisibleProperty, true);
@@ -505,63 +513,101 @@ public partial class CharacterPage : ContentPage
         SecondaryDisciplinePicker.SetValue(IsVisibleProperty, true);
         SecondaryDisciplineLabel.SetValue(IsVisibleProperty, true);
         SecondaryDisciplineFrame.SetValue(IsVisibleProperty, true);
-        if (characterSheet.CharacterClass != null)
+        if (sheet.CharacterClass != null)
         {
-            if (!characterSheet.CharacterClass.Equals("Expert"))
+            if (sheet.CharacterClass.Equals("Spellweaver")){
+                if (sheet.PrimaryDiscipline == null)
+                {
+                    SecondaryDisciplineList.Add("Destruction");
+                    SecondaryDisciplineList.Add("Transmutation");
+                    SecondaryDisciplineList.Add("Restoration");
+                }
+                else if (sheet.PrimaryDiscipline.Equals("Destruction"))
+                {
+                    SecondaryDisciplineList.Add("Transmutation");
+                    SecondaryDisciplineList.Add("Restoration");
+                }
+                else if (sheet.PrimaryDiscipline.Equals("Transmutation"))
+                {
+                    SecondaryDisciplineList.Add("Destruction");
+                    SecondaryDisciplineList.Add("Restoration");
+                }
+                else if (sheet.PrimaryDiscipline.Equals("Restoration"))
+                {
+                    SecondaryDisciplineList.Add("Destruction");
+                    SecondaryDisciplineList.Add("Transmutation");
+                }
+            }
+            if (!sheet.CharacterClass.Equals("Expert"))
             {
                 DistinctionPicker.SetValue(IsVisibleProperty, false);
                 DistinctionLabel.SetValue(IsVisibleProperty, false);
                 DistinctionFrame.SetValue(IsVisibleProperty, false);
             }
-            else if (characterSheet.CharacterClass.Equals("Expert"))
+            else if (sheet.CharacterClass.Equals("Expert"))
             {
                 PrimaryDisciplinePicker.SetValue(IsVisibleProperty, false);
                 PrimaryDisciplineLabel.SetValue(IsVisibleProperty, false);
                 PrimaryDisciplineFrame.SetValue(IsVisibleProperty, false);
             }
-            if (!characterSheet.CharacterClass.Equals("Spellweaver"))
+            if (!sheet.CharacterClass.Equals("Spellweaver"))
             {
                 SecondaryDisciplinePicker.SetValue(IsVisibleProperty, false);
                 SecondaryDisciplineLabel.SetValue(IsVisibleProperty, false);
                 SecondaryDisciplineFrame.SetValue(IsVisibleProperty, false);
             }
         }
+        else
+        {
+            DistinctionPicker.SetValue(IsVisibleProperty, false);
+            DistinctionLabel.SetValue(IsVisibleProperty, false);
+            DistinctionFrame.SetValue(IsVisibleProperty, false);
+            PrimaryDisciplinePicker.SetValue(IsVisibleProperty, false);
+            PrimaryDisciplineLabel.SetValue(IsVisibleProperty, false);
+            PrimaryDisciplineFrame.SetValue(IsVisibleProperty, false);
+            SecondaryDisciplinePicker.SetValue(IsVisibleProperty, false);
+            SecondaryDisciplineLabel.SetValue(IsVisibleProperty, false);
+            SecondaryDisciplineFrame.SetValue(IsVisibleProperty, false);
+        }
     }
     private async void OnPAWPickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.Paw = PAWPicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.Paw = PAWPicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
     private async void OnDistinctionPickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.Distinction = DistinctionPicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.Distinction = DistinctionPicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
     private async void OnPrimaryDisciplinePickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.PrimaryDiscipline = PrimaryDisciplinePicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.PrimaryDiscipline = PrimaryDisciplinePicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
 
         SecondaryDisciplineList.Clear();
-        if (characterSheet.CharacterClass != null)
+        if (sheet.CharacterClass != null)
         {
-            if (characterSheet.PrimaryDiscipline == null)
+            if (sheet.PrimaryDiscipline == null)
             {
                 SecondaryDisciplineList.Add("Destruction");
                 SecondaryDisciplineList.Add("Transmutation");
                 SecondaryDisciplineList.Add("Restoration");
             }
-            else if (characterSheet.PrimaryDiscipline.Equals("Destruction") & characterSheet.CharacterClass.Equals("Spellweaver"))
+            else if (sheet.PrimaryDiscipline.Equals("Destruction") & sheet.CharacterClass.Equals("Spellweaver"))
             {
                 SecondaryDisciplineList.Add("Transmutation");
                 SecondaryDisciplineList.Add("Restoration");
             }
-            else if (characterSheet.PrimaryDiscipline.Equals("Transmutation") & characterSheet.CharacterClass.Equals("Spellweaver"))
+            else if (sheet.PrimaryDiscipline.Equals("Transmutation") & sheet.CharacterClass.Equals("Spellweaver"))
             {
                 SecondaryDisciplineList.Add("Destruction");
                 SecondaryDisciplineList.Add("Restoration");
             }
-            else if (characterSheet.PrimaryDiscipline.Equals("Restoration") & characterSheet.CharacterClass.Equals("Spellweaver"))
+            else if (sheet.PrimaryDiscipline.Equals("Restoration") & sheet.CharacterClass.Equals("Spellweaver"))
             {
                 SecondaryDisciplineList.Add("Destruction");
                 SecondaryDisciplineList.Add("Transmutation");
@@ -577,19 +623,22 @@ public partial class CharacterPage : ContentPage
     }
     private async void OnSecondaryDisciplinePickerSelectedIndexChanged(object sender, EventArgs e)
     {
-        characterSheet.SecondaryDiscipline = SecondaryDisciplinePicker.SelectedItem as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.SecondaryDiscipline = SecondaryDisciplinePicker.SelectedItem as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
-    
+
     private async void OnLeftHandTextChanged(object sender, EventArgs e)
     {
-        characterSheet.LeftHandName = LeftHand.Text;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.LeftHandName = LeftHand.Text;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
     private async void OnRightHandTextChanged(object sender, EventArgs e)
     {
-        characterSheet.RightHandName = RightHand.Text;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.RightHandName = RightHand.Text;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
     private async void OnLeftHandImageClicked(object sender, EventArgs e)
     {
@@ -604,8 +653,9 @@ public partial class CharacterPage : ContentPage
             await stream.CopyToAsync(newStream);
 
         LeftHandImage.Source = newFile;
-        characterSheet.LeftHandImage = newFile;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet charactersheet = await GetSheet();
+        charactersheet.LeftHandImage = newFile;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(charactersheet);
     }
     private async void OnRightHandImageClicked(object sender, EventArgs e)
     {
@@ -620,19 +670,22 @@ public partial class CharacterPage : ContentPage
             await stream.CopyToAsync(newStream);
 
         RightHandImage.Source = newFile;
-        characterSheet.RightHandImage = newFile;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet charactersheet = await GetSheet();
+        charactersheet.RightHandImage = newFile;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(charactersheet);
     }
-    
+
     private async void OnFoibleEditorTextChanged(object sender, EventArgs e)
     {
-        characterSheet.Foibles = FoibleEditor.Text as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.Foibles = FoibleEditor.Text as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
-    
+
     private async void OnSpecialEditorTextChanged(object sender, EventArgs e)
     {
-        characterSheet.Specials = SpecialEditor.Text as String;
-        await App.CharacterSheetRepo.UpdateCharacterSheet(characterSheet);
+        CharacterSheet sheet = await GetSheet();
+        sheet.Specials = SpecialEditor.Text as String;
+        await App.CharacterSheetRepo.UpdateCharacterSheet(sheet);
     }
-}   
+}

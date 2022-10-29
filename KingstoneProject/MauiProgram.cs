@@ -15,9 +15,10 @@ public static class MauiProgram
                 fonts.AddFont("impact.ttf", "Impact");
             });
 
-        string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+        string dbPath = FileAccessHelper.GetLocalFilePath("charactersheets.db3");
+        string dbPath2 = FileAccessHelper.GetLocalFilePath("upgradetrackers.db3");
         builder.Services.AddSingleton<CharacterSheetRepository>(s => ActivatorUtilities.CreateInstance<CharacterSheetRepository>(s, dbPath));
-        builder.Services.AddSingleton<UpgradesTrackerRepository>(s => ActivatorUtilities.CreateInstance<UpgradesTrackerRepository>(s, dbPath));
+        builder.Services.AddSingleton<UpgradesTrackerRepository>(s => ActivatorUtilities.CreateInstance<UpgradesTrackerRepository>(s, dbPath2));
 
         return builder.Build();
 	}
