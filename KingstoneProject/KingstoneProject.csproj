@@ -32,11 +32,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appicon.svg" />
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\kingstoneds.png" Color="#0CCA98" BaseSize="100,100" />
 
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="128,128" Color="#0CCA98"/>
+		
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
@@ -58,6 +59,14 @@
 
 	<ItemGroup>
 	  <MauiXaml Remove="NewPage2.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\AppIcon\oldappicon.svg" />
+	  <None Remove="Resources\AppIcon\veryoldappicon.svg" />
+	  <None Remove="Resources\drawable\kingstoneds.png" />
+	  <None Remove="Resources\Splash\kingstoneds.png" />
+	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
