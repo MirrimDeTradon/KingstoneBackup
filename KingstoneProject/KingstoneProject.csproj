@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>KingstoneProject</ApplicationTitle>
+		<ApplicationTitle>Kingstone</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.kingstoneproject</ApplicationId>
@@ -32,7 +32,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg"/>
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\kingstoneds.png" Color="#0CCA98" BaseSize="100,100" />
